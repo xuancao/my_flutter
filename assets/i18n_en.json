@@ -1,0 +1,26 @@
+{
+  "appName": "YBWP",
+  "pullToRefresh": "Pull to refresh",
+  "releaseToRefresh": "Release to refresh",
+  "refreshing": "Refreshing",
+  "refreshFinish": "Refresh finish",
+  "refreshed": "Refresh finished",
+  "pushToLoad": "Push to load",
+  "releaseToLoad": "Release to load",
+  "loading": "Loading",
+  "loadFinish": "Load finish",
+  "loaded": "Load finished",
+  "noMore": "No more",
+  "updateAt": "Update at %T",
+  "noData": "No data",
+
+  "setting":"Setting",
+  "feedback" : "FeedBack",
+  "settingPage":"Setting Page",
+  "loginOut": "Login Out",
+  "chooseLanguage" : "Choose Language",
+  "wheShowID" : "Whether to show ID",
+  "changeUserInfo" : "change user info",
+  "changeName" : "change user name",
+  "changeSex" : "change user sex"
+}

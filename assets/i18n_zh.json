@@ -1,0 +1,26 @@
+{
+  "appName": "银保王牌",
+  "pullToRefresh": "下拉刷新",
+  "releaseToRefresh": "释放刷新",
+  "refreshing": "正在刷新",
+  "refreshFinish": "刷新完成",
+  "refreshed": "刷新结束",
+  "pushToLoad": "上拉加载",
+  "releaseToLoad": "释放加载",
+  "loading": "正在加载",
+  "loadFinish": "加载完成",
+  "loaded": "加载结束",
+  "noMore": "没有更多数据",
+  "updateAt": "更新于 %T",
+  "noData": "没有数据",
+
+  "setting":"设置",
+  "feedback" : "意见反馈",
+  "settingPage":"设置页面",
+  "loginOut": "退出登录",
+  "chooseLanguage" : "选择语言",
+  "wheShowID" : "是否显示用户ID",
+  "changeUserInfo" : "修改个人信息",
+  "changeName" : "修改姓名",
+  "changeSex" : "修改性别"
+}
