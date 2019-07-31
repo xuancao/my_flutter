@@ -3,13 +3,14 @@ import 'package:dio/dio.dart';
 import 'package:ybwp_flutter/api/net/ResponseCode.dart';
 import 'package:ybwp_flutter/api/net/ResponseData.dart';
 import 'package:ybwp_flutter/resource/Strings.dart';
+import 'package:ybwp_flutter/utils/ToastUtils.dart';
 
 //错误拦截
 //@author lxl
 class ErrorInterceptor extends InterceptorsWrapper {
   final Dio _dio;
 
-  ErrorInterceptor(this._dio);
+  ErrorInterceptor(this._dio,);
 
   @override
   onRequest(RequestOptions options) async {
@@ -22,4 +23,6 @@ class ErrorInterceptor extends InterceptorsWrapper {
     }
     return options;
   }
+
+
 }

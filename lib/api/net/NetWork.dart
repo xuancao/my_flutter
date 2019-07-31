@@ -74,6 +74,7 @@ class NetWork {
     if(_wheShowLoading){
       LoadingUtils.showLoadingDialog(_context);
     }
+
     dio.interceptors.add(new ResponseInterceptor(successCallBack, errorCallBack));
     try {
       if (method == Config.GET) {
@@ -98,19 +99,7 @@ class NetWork {
         LoadingUtils.hintLoadingDialog(_context);
       }
       _context = null;
-      Response errorResponse;
-      if (e.response != null) {
-        errorResponse = e.response;
-      } else {
-        errorResponse = new Response(statusCode: ResponseCode.NETWORK_ERROR);
-      }
-      if (e.type == DioErrorType.CONNECT_TIMEOUT ||
-          e.type == DioErrorType.RECEIVE_TIMEOUT) {
-        errorResponse.statusCode = ResponseCode.NETWORK_TIMEOUT;
-      }
-      String errorMsg = Strings.TIP_ERROR_CODE +
-          errorResponse.statusCode.toString() + '，' +
-          errorResponse.data.toString();
+      String errorMsg = e.type + e.message;
       _error(errorCallBack, errorMsg);
     }finally{
       if(_wheShowLoading){
@@ -125,4 +114,5 @@ class NetWork {
       errorCallBack(error);
     }
   }
+
 }

@@ -2,18 +2,18 @@ class PotentialNestModel {
 	int total;
 	int pages;
 	int pageSize;
-	List<PotentialModel> xList;
+	List<PotentialModel> list;
 	int pageNum;
 
-	PotentialNestModel({this.total, this.pages, this.pageSize, this.xList, this.pageNum});
+	PotentialNestModel({this.total, this.pages, this.pageSize, this.list, this.pageNum});
 
 	PotentialNestModel.fromJson(Map<String, dynamic> json) {
 		total = json['total'];
 		pages = json['pages'];
 		pageSize = json['pageSize'];
 		if (json['list'] != null) {
-			xList = new List<PotentialModel>();
-			(json['list'] as List).forEach((v) { xList.add(new PotentialModel.fromJson(v)); });
+			list = new List<PotentialModel>();
+			(json['list'] as List).forEach((v) { list.add(new PotentialModel.fromJson(v)); });
 		}
 		pageNum = json['pageNum'];
 	}
@@ -23,8 +23,8 @@ class PotentialNestModel {
 		data['total'] = this.total;
 		data['pages'] = this.pages;
 		data['pageSize'] = this.pageSize;
-		if (this.xList != null) {
-      data['list'] = this.xList.map((v) => v.toJson()).toList();
+		if (this.list != null) {
+      data['list'] = this.list.map((v) => v.toJson()).toList();
     }
 		data['pageNum'] = this.pageNum;
 		return data;

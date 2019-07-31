@@ -2,12 +2,12 @@
 //网络环境枚举
 //@author lxl
 class Constants {
-  //不同环境host
-  static final String _devHost =    "xxxx";
-  static final String _datHost =    "xxxx";
-  static final String _uatHost =    "xxxx";
-  static final String _virHost =    "xxxx";
-  static final String _onlineHost = "xxxx";
+//不同环境host
+  static final String _devHost =    "xxx";
+  static final String _datHost =    "xxx";
+  static final String _uatHost =    "xxx";
+  static final String _virHost =    "xxx";
+  static final String _onlineHost = "xxx";
 
 
   //获取对应的host

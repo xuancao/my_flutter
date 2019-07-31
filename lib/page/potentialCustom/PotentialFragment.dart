@@ -125,7 +125,7 @@ class _PotentialFragmentState extends State<PotentialFragment>{
         if(mCurrentPage == 1){
           netDotList.clear();
         }
-        netDotList.addAll(nestModel.xList);
+        netDotList.addAll(nestModel.list);
       });
     }
   }

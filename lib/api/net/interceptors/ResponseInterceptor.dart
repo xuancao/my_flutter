@@ -20,36 +20,33 @@ class ResponseInterceptor extends InterceptorsWrapper {
   onResponse(Response response) {
     try {
       if (response.statusCode != HttpStatus.OK) {
-        String  errorMsg = Strings.TIP_ERROR_CODE + response.statusCode.toString() + '，' + response.data.toString();
+        String errorMsg = Strings.TIP_ERROR_CODE + response.statusCode.toString() + '，' + response.data.toString();
         _error(errorCallBack,errorMsg);
-      }else{
-        _success(successCallBack,new ResponseData(response.data[Config.CONTENT],
-            response.data[Config.CODE], response.data[Config.MSG]));
+      }else {
+        if(ResponseCode.DATA_SUCCESS == response.data[Config.CODE]){
+            _success(successCallBack,new ResponseData(response.data[Config.CONTENT], response.data[Config.CODE], response.data[Config.MSG]));
+        }else if(response.data != null){
+          String errorMsg = response.data[Config.CODE].toString()+ '，'  + response.data[Config.MSG];
+          _error(errorCallBack,errorMsg);
+        }
       }
     } catch (e) {
-      Response errorResponse;
-      if (e.response != null) {
-        errorResponse = e.response;
-      } else {
-        errorResponse = new Response(statusCode: ResponseCode.NETWORK_ERROR);
-      }
-      if (e.type == DioErrorType.CONNECT_TIMEOUT || e.type == DioErrorType.RECEIVE_TIMEOUT) {
-        errorResponse.statusCode = ResponseCode.NETWORK_TIMEOUT;
-      }
-      String  errorMsg = Strings.TIP_ERROR_CODE + errorResponse.statusCode.toString() + '，' + errorResponse.data.toString();
-      _error(errorCallBack,errorMsg);
+      _error(errorCallBack,e.toString());
     }
     return response;
   }
 
   _success(Function successCallBack,ResponseData data) {
+    if(data.code == ResponseCode.NETWORK_ERROR){
+      _error(errorCallBack, data.toString());
+    }
     if (successCallBack != null) {
       successCallBack(data);
     }
   }
 
   _error(Function errorCallBack, String error) {
-    ToastUtils.showToast(error.toString());
+    ToastUtils.showToast(error);
     if (errorCallBack != null) {
       errorCallBack(error);
     }
